@@ -8,54 +8,54 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import br.com.cadastro.dao.CatalogoDAO;
-import br.com.cadastro.model.Catalogo;
+import br.com.cadastro.dao.TreinoDAO;
+import br.com.cadastro.model.Treino;
 
 @Controller
 public class TreinoController {
 	
     @Autowired
-    CatalogoDAO daoCatalogo;
+    TreinoDAO daoTreino;
     
-	@RequestMapping("listaCatalogos")
-    public String lista(Model modelCatalogo) throws ClassNotFoundException {
-        modelCatalogo.addAttribute("catalogos", daoCatalogo.lista());
-        return "catalogo/lista";
+	@RequestMapping("listaTreinos")
+    public String lista(Model modelTreino) throws ClassNotFoundException {
+        modelTreino.addAttribute("treinos", daoTreino.lista());
+        return "treino/lista";
     }
 
-	@RequestMapping("novoCatalogo")
+	@RequestMapping("novoTreino")
 	public String form() {
-		return "catalogo/formulario";
+		return "treino/formulario";
 	}
 	
-	@RequestMapping("adicionaCatalogo")
-	public String adiciona(@Valid Catalogo catalogo, BindingResult result) throws ClassNotFoundException {
+	@RequestMapping("adicionaTreino")
+	public String adiciona(@Valid Treino treino, BindingResult result) throws ClassNotFoundException {
 		if(result.hasFieldErrors("identificacao") || result.hasFieldErrors("descricao")) {
-			 return "catalogo/formulario";
+			 return "treino/formulario";
 	     }
-		daoCatalogo.adiciona(catalogo);
-		return "redirect:listaCatalogos";
+		daoTreino.adiciona(treino);
+		return "redirect:listaTreinos";
 	}
 	
-	@RequestMapping("mostraCatalogo")
-    public String mostra(Long id, Model modelCatalogo) throws ClassNotFoundException {
-        modelCatalogo.addAttribute("catalogo", daoCatalogo.buscaPorId(id));
-        return "catalogo/mostra";
+	@RequestMapping("mostraTreino")
+    public String mostra(Long id, Model modelTreino) throws ClassNotFoundException {
+        modelTreino.addAttribute("treino", daoTreino.buscaPorId(id));
+        return "treino/mostra";
     }
 	
-	@RequestMapping("alteraCatalogo")
-	public String altera(@Valid Catalogo catalogo, BindingResult result) throws ClassNotFoundException {
+	@RequestMapping("alteraTreino")
+	public String altera(@Valid Treino treino, BindingResult result) throws ClassNotFoundException {
 		if(result.hasFieldErrors("identificacao") || result.hasFieldErrors("descricao")) {
-			 return "catalogo/mostra";
+			 return "treino/mostra";
 	     }
-		daoCatalogo.altera(catalogo);
-        return "redirect:listaCatalogos";
+		daoTreino.altera(treino);
+        return "redirect:listaTreinos";
     }
 	
-    @RequestMapping("removeCatalogo")
-    public String remove(Catalogo catalogo) throws ClassNotFoundException {
-    	daoCatalogo.remove(catalogo);
-        return "redirect:listaCatalogos";
+    @RequestMapping("removeTreino")
+    public String remove(Treino treino) throws ClassNotFoundException {
+    	daoTreino.remove(treino);
+        return "redirect:listaTreinos";
     }
     
 }

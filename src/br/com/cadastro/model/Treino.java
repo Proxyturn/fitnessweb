@@ -1,6 +1,11 @@
 package br.com.cadastro.model;
 
+import java.util.Calendar;
+
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class Treino {
 	
@@ -8,9 +13,12 @@ public class Treino {
 	private Long id;
 	@Size(min=1 , message="Preencher Campo")
 	private String identificacao;
-	@Size(min=1 , message="Preencher Campo")
-	private String descricao;
-	
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	private Calendar dataInicio;
+	@NotNull(message="Campo em Branco")
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	private Calendar dataFim;
+	@NotNull(message="Campo em Branco")
 	public Long getId() {
 		return id;
 	}
@@ -23,12 +31,7 @@ public class Treino {
 	public void setIdentificacao(String identificacao) {
 		this.identificacao = identificacao;
 	}
-	public String getDescricao() {
-		return descricao;
-	}
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
+	
 
 
 
