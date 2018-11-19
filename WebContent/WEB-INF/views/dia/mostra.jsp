@@ -16,7 +16,7 @@
 	<br />
 	<br />
 	
-	<form action="alteraDia" method="post" class="form-horizontal">
+	<form action="alteraDia?id=${dia.idDiasTreino}" method="post" class="form-horizontal">
 	
 	<input type="hidden" name="id" value="${dia.id}" />
 				
@@ -24,8 +24,7 @@
 		<input type="text" name="identificacao" value="${dia.identificacao}" >
 		<form:errors path="dia.identificacao" cssStyle="color:#B71C1C"/><br />
 	
-		<label for="idDiasTreino">idDiasTreino</label>  
-		<input type="text" name="idDiasTreino" value="${dia.idDiasTreino}" >
+		<input type="hidden" name="idDiasTreino" value="${dia.idDiasTreino}" >
 		<form:errors path="dia.idDiasTreino" cssStyle="color:#B71C1C"/><br />
 	
 	<input type="submit" value="Alterar">

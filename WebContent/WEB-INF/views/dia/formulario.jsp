@@ -15,13 +15,12 @@
 	
 	Cadastro de Dias <br /><br />
 	
-	<form action="adicionaDia" method="post">
+	<form action="adicionaDia?id=${treino.id}" method="post">
 				<label for="Identificacao">Identificação</label>  
 				<input type="text" name="identificacao" value="${dia.identificacao}" >
 				<form:errors path="dia.identificacao" cssStyle="color:#B71C1C"/><br />
 	
-				<label for="idDiasTreino">idDiasTreino</label>  
-				<input type="text" name="idDiasTreino" value="${dia.idDiasTreino}" >
+				<input type="hidden" name="idDiasTreino" value="${treino.id}" >
 				<form:errors path="dia.idDiasTreino" cssStyle="color:#B71C1C"/><br />
 		
 				<input type="submit" value="Criar">

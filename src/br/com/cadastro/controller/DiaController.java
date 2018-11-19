@@ -29,17 +29,18 @@ public class DiaController {
     }
 
 	@RequestMapping("novoDia")
-	public String form() {
+	public String form(Long id, Model modelTreino) {
+		modelTreino.addAttribute("treino", daoTreino.buscaPorId(id));
 		return "dia/formulario";
 	}
 	
 	@RequestMapping("adicionaDia")
-	public String adiciona(@Valid Dia dia, BindingResult result) throws ClassNotFoundException {
+	public String adiciona(@Valid Dia dia, BindingResult result, Long id) throws ClassNotFoundException {
 		if(result.hasFieldErrors("identificacao") ) {
 			 return "dia/formulario";
 	     }
 		daoDia.adiciona(dia);
-		return "redirect:listaDias";
+		return "redirect:listaDias?id="+id+"";
 	}
 	
 	@RequestMapping("mostraDia")
@@ -49,18 +50,18 @@ public class DiaController {
     }
 	
 	@RequestMapping("alteraDia")
-	public String altera(@Valid Dia dia, BindingResult result) throws ClassNotFoundException {
+	public String altera(@Valid Dia dia, BindingResult result, Long id) throws ClassNotFoundException {
 		if(result.hasFieldErrors("identificacao") ) {
 			 return "dia/mostra";
 	     }
 		daoDia.altera(dia);
-        return "redirect:listaDias";
+		return "redirect:listaDias?id="+id+"";
     }
 	
     @RequestMapping("removeDia")
-    public String remove(Dia dia) throws ClassNotFoundException {
+    public String remove(Dia dia,Long idTreino) throws ClassNotFoundException {
     	daoDia.remove(dia);
-        return "redirect:listaDias";
+    	return "redirect:listaDias?id="+idTreino+"";
     }
     
 }
