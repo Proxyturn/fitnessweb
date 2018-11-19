@@ -8,9 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import br.com.cadastro.dao.CatalogoDAO;
 import br.com.cadastro.dao.DiaDAO;
-import br.com.cadastro.model.Catalogo;
 import br.com.cadastro.model.Dia;
 
 @Controller
