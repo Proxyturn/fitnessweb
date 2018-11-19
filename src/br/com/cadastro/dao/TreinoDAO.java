@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -12,7 +13,7 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import br.com.cadastro.model.Catalogo;
+import br.com.cadastro.model.Treino;
 
 @Repository
 public class TreinoDAO {
@@ -27,14 +28,14 @@ public class TreinoDAO {
         }
 	}
 	
-	public void adiciona(Catalogo catalogo){
-		String sql = "insert into catalogos (identificacao, descricao) " +
-					"values (?, ?)";
+	public void adiciona(Treino treino){
+		String sql = "insert into treinos (identificacao) " +
+					"values (?)";
 		
 		try{
 			PreparedStatement stmt = this.connection.prepareStatement(sql);
-			stmt.setString(1, catalogo.getIdentificacao());
-			stmt.setString(2, catalogo.getDescricao());
+			stmt.setString(1, treino.getIdentificacao());
+			stmt.setString(2, treino.getDescricao());
 		
 			stmt.execute();
 			stmt.close();
@@ -43,37 +44,48 @@ public class TreinoDAO {
 		}
 	}
 	
-	public List<Catalogo> lista(){
+	public List<Treino> lista(){
 		try{
-			List<Catalogo> catalogos = new ArrayList<Catalogo>();
+			List<Treino> treinos = new ArrayList<Treino>();
 			PreparedStatement stmt = this.connection.prepareStatement
-			("SELECT * FROM catalogos");
+			("SELECT * FROM treinos");
 			ResultSet rs = stmt.executeQuery();
 			
 			while(rs.next())
 			{
-				Catalogo catalogo = new Catalogo();
+				Treino treino = new Treino();
 				
-				catalogo.setId(rs.getLong("id"));
-				catalogo.setIdentificacao(rs.getString("identificacao"));
-				catalogo.setDescricao(rs.getString("descricao"));
-				catalogos.add(catalogo);
+				treino.setId(rs.getLong("id"));
+				treino.setIdTreinoUsuario(rs.getLong("idTreinoUsuario"));
+				treino.setStatus(rs.getLong("status"));
+				treino.setIdentificacao(rs.getString("identificacao"));
+				if(rs.getDate("dataInicio") != null){
+					Calendar dataInicio = Calendar.getInstance();
+					dataInicio.setTime(rs.getDate("dataInicio"));
+					treino.setDataInicio(dataInicio);
+				}
+				if(rs.getDate("dataFim") != null){
+					Calendar dataFim = Calendar.getInstance();
+					dataFim.setTime(rs.getDate("dataFim"));
+					treino.setDataFim(dataFim);
+				}
+				treinos.add(treino);
 			}
 			rs.close();
 			stmt.close();
-			return catalogos;
+			return treinos;
 	
 			}catch(SQLException e){
 				throw new RuntimeException(e);
 		}
 	}
 	
-	public void remove(Catalogo catalogo){
+	public void remove(Treino treino){
 		try{
 			PreparedStatement stmt = this.connection.prepareStatement
-			("delete from catalogos where id = ?");
+			("delete from treinos where id = ?");
 			
-			stmt.setLong(1, catalogo.getId());
+			stmt.setLong(1, treino.getId());
 			stmt.execute();
 			stmt.close();
 
@@ -83,10 +95,10 @@ public class TreinoDAO {
 		}
 	}
 	
-	public Catalogo buscaPorId(Long id){
+	public Treino buscaPorId(Long id){
 		
 		try{
-			PreparedStatement stmt = this.connection.prepareStatement("select * from catalogos");
+			PreparedStatement stmt = this.connection.prepareStatement("select * from treinos");
 			ResultSet rs = stmt.executeQuery();
 			
 			while(rs.next())
@@ -94,14 +106,14 @@ public class TreinoDAO {
 
 				if(id == rs.getLong("id"))
 				{
-					Catalogo catalogo = new Catalogo();
+					Treino treino = new Treino();
 
-					catalogo.setId(rs.getLong("id"));
-					catalogo.setIdentificacao(rs.getString("identificacao"));
-					catalogo.setDescricao(rs.getString("descricao"));
+					treino.setId(rs.getLong("id"));
+					treino.setIdentificacao(rs.getString("identificacao"));
+					treino.setDescricao(rs.getString("descricao"));
 	
 					
-					return catalogo;
+					return treino;
 				}
 			}
 				return null;
@@ -111,15 +123,15 @@ public class TreinoDAO {
 	}
 	
 	
-	public void altera(Catalogo catalogo){
-		String sql = "update catalogos set identificacao=? , descricao=? where id=?";
+	public void altera(Treino treino){
+		String sql = "update treinos set identificacao=? , descricao=? where id=?";
 		
 		try{
 			PreparedStatement stmt = this.connection.prepareStatement(sql);
 			
-			stmt.setString(1, catalogo.getIdentificacao());
-			stmt.setString(2, catalogo.getDescricao());
-			stmt.setLong(3, catalogo.getId());
+			stmt.setString(1, treino.getIdentificacao());
+			stmt.setString(2, treino.getDescricao());
+			stmt.setLong(3, treino.getId());
 				
 			stmt.execute();
 			stmt.close();

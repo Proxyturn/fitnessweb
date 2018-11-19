@@ -15,14 +15,10 @@
 	
 	Cadastro de Usuarios <br /><br />
 	
-	<form action="adicionaCatalogo" method="post">
+	<form action="adicionaTreino" method="post">
 				<label for="Identificacao">Identificação</label>  
-				<input type="text" name="identificacao" value="${catalogo.identificacao}" >
-				<form:errors path="catalogo.identificacao" cssStyle="color:#B71C1C"/><br />
-	
-				<label for="Descricao">Descrição</label>  
-				<input type="text" name="descricao" value="${catalogo.descricao}" >
-				<form:errors path="catalogo.descricao" cssStyle="color:#B71C1C"/><br />
+				<input type="text" name="identificacao" value="${treino.identificacao}" >
+				<form:errors path="treino.identificacao" cssStyle="color:#B71C1C"/><br />
 		
 				<input type="submit" value="Criar">
 		

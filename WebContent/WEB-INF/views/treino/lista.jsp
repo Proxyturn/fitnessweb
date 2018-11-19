@@ -22,13 +22,13 @@
 			<th></th>
 			<th></th>
 		</tr>
-		<c:forEach items="${catalogos}" var="catalogo">
+		<c:forEach items="${treinos}" var="treino">
 			<tr>
 				<td>${catalogo.id}</td>
 				<td>${catalogo.identificacao}</td>
 				<td>${catalogo.descricao}</td>
-				<td><a href="mostraCatalogo?id=${catalogo.id}" title="Editar">Editar</a></td>
-				<td><a href="removeCatalogo?id=${catalogo.id}" title="Excluir">Excluir</a></td>
+				<td><a href="mostraTreino?id=${treino.id}" title="Editar">Editar</a></td>
+				<td><a href="removeTreino?id=${treino.id}" title="Excluir">Excluir</a></td>
 			</tr>
 		</c:forEach>
 	</table>
