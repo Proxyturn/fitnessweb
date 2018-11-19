@@ -2,15 +2,15 @@ package br.com.cadastro.model;
 
 import javax.validation.constraints.Size;
 
-public class Catalogo {
+public class Dia {
 	
 
 	private Long id;
 	@Size(min=1 , message="Preencher Campo")
 	private String identificacao;
-	@Size(min=1 , message="Preencher Campo")
-	private String descricao;
+	private Long idDiasTreino;
 	
+
 	public Long getId() {
 		return id;
 	}
@@ -23,17 +23,15 @@ public class Catalogo {
 	public void setIdentificacao(String identificacao) {
 		this.identificacao = identificacao;
 	}
+	public Long getIdDiasTreino() {
+		return idDiasTreino;
+	}
+	public void setIdDiasTreino(Long idDiasTreino) {
+		this.idDiasTreino = idDiasTreino;
+	}
 	public String getDescricao() {
-		return descricao;
-	}
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-	public void setIdDiasTreino(String string) {
 		// TODO Auto-generated method stub
-		
+		return null;
 	}
-
-
 
 }
