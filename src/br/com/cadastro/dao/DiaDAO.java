@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import br.com.cadastro.model.Dia;
-import br.com.cadastro.model.Dia;
 
 @Repository
 public class DiaDAO {
