@@ -29,8 +29,8 @@
       
       <bean id="mysqlDataSource" class="org.apache.commons.dbcp.BasicDataSource">
              <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-       		 <property name="url" value="jdbc:mysql://www.anln.com.br/anlncom_cadastro"/>
-       		 <property name="username" value="anlncom_cadastro"/>
-             <property name="password" value="anlncom_cadastro123456"/>
+       		 <property name="url" value="jdbc:mysql://www.anln.com.br/anlncom_academia"/>
+       		 <property name="username" value="anlncom_academia"/>
+             <property name="password" value="@cademia$123456%"/>
          </bean>
 </beans>
