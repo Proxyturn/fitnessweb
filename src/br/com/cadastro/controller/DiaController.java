@@ -1,0 +1,63 @@
+package br.com.cadastro.controller;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import br.com.cadastro.dao.CatalogoDAO;
+import br.com.cadastro.dao.DiaDAO;
+import br.com.cadastro.model.Catalogo;
+import br.com.cadastro.model.Dia;
+
+@Controller
+public class DiaController {
+	
+    @Autowired
+    DiaDAO daoDia;
+    
+	@RequestMapping("listaDia")
+    public String lista(Model modelDia) throws ClassNotFoundException {
+        modelDia.addAttribute("dias", daoDia.lista());
+        return "dia/lista";
+    }
+
+	@RequestMapping("novoDia")
+	public String form() {
+		return "dia/formulario";
+	}
+	
+	@RequestMapping("adicionaDia")
+	public String adiciona(@Valid Dia dia, BindingResult result) throws ClassNotFoundException {
+		if(result.hasFieldErrors("identificacao") ) {
+			 return "dia/formulario";
+	     }
+		daoDia.adiciona(dia);
+		return "redirect:listaDia";
+	}
+	
+	@RequestMapping("mostraDia")
+    public String mostra(Long id, Model modelDia) throws ClassNotFoundException {
+        modelDia.addAttribute("dia", daoDia.buscaPorId(id));
+        return "dia/mostra";
+    }
+	
+	@RequestMapping("alteraDia")
+	public String altera(@Valid Dia dia, BindingResult result) throws ClassNotFoundException {
+		if(result.hasFieldErrors("identificacao") ) {
+			 return "dia/mostra";
+	     }
+		daoDia.altera(dia);
+        return "redirect:listaDias";
+    }
+	
+    @RequestMapping("removeDia")
+    public String remove(Dia dia) throws ClassNotFoundException {
+    	daoDia.remove(dia);
+        return "redirect:listaDias";
+    }
+    
+}
