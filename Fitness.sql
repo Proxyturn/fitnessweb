@@ -51,4 +51,4 @@ CONSTRAINT fkExerciciosCatalogos FOREIGN KEY(idExerciciosCatalogos) REFERENCES c
 
 
 
-INSERT INTO usuarios (nome ,login, senha, dataNascimento, altura) VALUES ( 'Usuário Aluno Teste','aluno', MD5('123456'),'1982-10-06',1.7);
+INSERT INTO usuarios (nome ,login, senha, dataNascimento, altura) VALUES ( 'Ussuario Aluno Teste','aluno', MD5('123456'),'1982-10-06',1.7);
