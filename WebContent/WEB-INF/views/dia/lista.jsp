@@ -11,7 +11,7 @@
 <body>
 <c:import url="/WEB-INF/views/principal/menu.jsp"/>
 	<br />
-	<a href="novoCatalogo">Cadastrar novo dia</a>
+	<a href="novoDia">Cadastrar novo dia</a>
 	<br />
 	<br />
 	<table>
@@ -24,11 +24,11 @@
 		</tr>
 		<c:forEach items="${dias}" var="dia">
 			<tr>
-				<td>${catalogo.id}</td>
-				<td>${catalogo.identificacao}</td>
-				<td>${catalogo.descricao}</td>
-				<td><a href="mostraCatalogo?id=${catalogo.id}" title="Editar">Editar</a></td>
-				<td><a href="removeCatalogo?id=${catalogo.id}" title="Excluir">Excluir</a></td>
+				<td>${dia.id}</td>
+				<td>${dia.identificacao}</td>
+				<td>${dia.idDiasTreino}</td>
+				<td><a href="mostraDia?id=${dia.id}" title="Editar">Editar</a></td>
+				<td><a href="removeDia?id=${dia.id}" title="Excluir">Excluir</a></td>
 			</tr>
 		</c:forEach>
 	</table>

@@ -29,9 +29,5 @@ public class Dia {
 	public void setIdDiasTreino(Long idDiasTreino) {
 		this.idDiasTreino = idDiasTreino;
 	}
-	public String getDescricao() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }

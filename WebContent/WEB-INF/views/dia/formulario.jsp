@@ -13,7 +13,7 @@
 <c:import url="/WEB-INF/views/principal/menu.jsp"/>
 <br />
 	
-	Cadastro de Usuarios <br /><br />
+	Cadastro de Dias <br /><br />
 	
 	<form action="adicionaDia" method="post">
 				<label for="Identificacao">Identificação</label>  

@@ -17,7 +17,7 @@ public class DiaController {
     @Autowired
     DiaDAO daoDia;
     
-	@RequestMapping("listaDia")
+	@RequestMapping("listaDias")
     public String lista(Model modelDia) throws ClassNotFoundException {
         modelDia.addAttribute("dias", daoDia.lista());
         return "dia/lista";
@@ -34,7 +34,7 @@ public class DiaController {
 			 return "dia/formulario";
 	     }
 		daoDia.adiciona(dia);
-		return "redirect:listaDia";
+		return "redirect:listaDias";
 	}
 	
 	@RequestMapping("mostraDia")

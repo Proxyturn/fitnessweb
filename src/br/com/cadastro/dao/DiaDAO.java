@@ -12,7 +12,7 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import br.com.cadastro.model.Catalogo;
+import br.com.cadastro.model.Dia;
 import br.com.cadastro.model.Dia;
 
 @Repository
@@ -29,7 +29,7 @@ public class DiaDAO {
 	}
 	
 	public void adiciona(Dia dia){
-		String sql = "insert into catalogos (identificacao, idDiasTreino) " +
+		String sql = "insert into dias (identificacao, idDiasTreino) " +
 					"values (?, ?)";
 		
 		try{
@@ -43,25 +43,25 @@ public class DiaDAO {
 		}
 	}
 	
-	public List<Catalogo> lista(){
+	public List<Dia> lista(){
 		try{
-			List<Catalogo> catalogos = new ArrayList<Catalogo>();
+			List<Dia> dias = new ArrayList<Dia>();
 			PreparedStatement stmt = this.connection.prepareStatement
-			("SELECT * FROM catalogos");
+			("SELECT * FROM dias");
 			ResultSet rs = stmt.executeQuery();
 			
 			while(rs.next())
 			{
-				Catalogo catalogo = new Catalogo();
+				Dia dia = new Dia();
 				
-				catalogo.setId(rs.getLong("id"));
-				catalogo.setIdentificacao(rs.getString("identificacao"));
-				catalogo.setIdDiasTreino(rs.getString("idDiasTreino"));
-				catalogos.add(catalogo);
+				dia.setId(rs.getLong("id"));
+				dia.setIdentificacao(rs.getString("identificacao"));
+				dia.setIdDiasTreino(rs.getLong("idDiasTreino"));
+				dias.add(dia);
 			}
 			rs.close();
 			stmt.close();
-			return catalogos;
+			return dias;
 	
 			}catch(SQLException e){
 				throw new RuntimeException(e);
@@ -71,7 +71,7 @@ public class DiaDAO {
 	public void remove(Dia dia){
 		try{
 			PreparedStatement stmt = this.connection.prepareStatement
-			("delete from catalogos where id = ?");
+			("delete from dias where id = ?");
 			
 			stmt.setLong(1, dia.getId());
 			stmt.execute();
@@ -83,10 +83,10 @@ public class DiaDAO {
 		}
 	}
 	
-	public Catalogo buscaPorId(Long id){
+	public Dia buscaPorId(Long id){
 		
 		try{
-			PreparedStatement stmt = this.connection.prepareStatement("select * from catalogos");
+			PreparedStatement stmt = this.connection.prepareStatement("select * from dias");
 			ResultSet rs = stmt.executeQuery();
 			
 			while(rs.next())
@@ -94,14 +94,14 @@ public class DiaDAO {
 
 				if(id == rs.getLong("id"))
 				{
-					Catalogo catalogo = new Catalogo();
+					Dia dia = new Dia();
 
-					catalogo.setId(rs.getLong("id"));
-					catalogo.setIdentificacao(rs.getString("identificacao"));
-					catalogo.setIdDiasTreino(rs.getString("idDiasTreino"));
+					dia.setId(rs.getLong("id"));
+					dia.setIdentificacao(rs.getString("identificacao"));
+					dia.setIdDiasTreino(rs.getLong("idDiasTreino"));
 	
 					
-					return catalogo;
+					return dia;
 				}
 			}
 				return null;
@@ -112,7 +112,7 @@ public class DiaDAO {
 	
 	
 	public void altera(Dia dia){
-		String sql = "update catalogos set identificacao=? , descricao=? where id=?";
+		String sql = "update dias set identificacao=? , idDiasTreino=? where id=?";
 		
 		try{
 			PreparedStatement stmt = this.connection.prepareStatement(sql);

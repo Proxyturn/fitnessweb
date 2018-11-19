@@ -16,13 +16,13 @@
 	<br />
 	<br />
 	
-	<form action="alteraCatalogo" method="post" class="form-horizontal">
+	<form action="alteraDia" method="post" class="form-horizontal">
 	
 	<input type="hidden" name="id" value="${dia.id}" />
 				
 		<label for="Identificacao">Identificação</label>  
-		<input type="text" name="identificacao" value="${catalogo.identificacao}" >
-		<form:errors path="catalogo.identificacao" cssStyle="color:#B71C1C"/><br />
+		<input type="text" name="identificacao" value="${dia.identificacao}" >
+		<form:errors path="dia.identificacao" cssStyle="color:#B71C1C"/><br />
 	
 		<label for="idDiasTreino">idDiasTreino</label>  
 		<input type="text" name="idDiasTreino" value="${dia.idDiasTreino}" >
