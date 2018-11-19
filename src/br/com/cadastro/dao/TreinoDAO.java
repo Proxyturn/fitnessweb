@@ -35,7 +35,7 @@ public class TreinoDAO {
 		try{
 			PreparedStatement stmt = this.connection.prepareStatement(sql);
 			stmt.setString(1, treino.getIdentificacao());
-			stmt.setString(2, treino.getDescricao());
+
 		
 			stmt.execute();
 			stmt.close();
@@ -88,8 +88,7 @@ public class TreinoDAO {
 			stmt.setLong(1, treino.getId());
 			stmt.execute();
 			stmt.close();
-
-			
+	
 		}catch(SQLException e){
 			throw new RuntimeException(e);
 		}
@@ -107,12 +106,8 @@ public class TreinoDAO {
 				if(id == rs.getLong("id"))
 				{
 					Treino treino = new Treino();
-
 					treino.setId(rs.getLong("id"));
 					treino.setIdentificacao(rs.getString("identificacao"));
-					treino.setDescricao(rs.getString("descricao"));
-	
-					
 					return treino;
 				}
 			}
@@ -124,13 +119,12 @@ public class TreinoDAO {
 	
 	
 	public void altera(Treino treino){
-		String sql = "update treinos set identificacao=? , descricao=? where id=?";
+		String sql = "update treinos set identificacao=?where id=?";
 		
 		try{
 			PreparedStatement stmt = this.connection.prepareStatement(sql);
 			
 			stmt.setString(1, treino.getIdentificacao());
-			stmt.setString(2, treino.getDescricao());
 			stmt.setLong(3, treino.getId());
 				
 			stmt.execute();
