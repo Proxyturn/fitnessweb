@@ -30,7 +30,7 @@ public class TreinoController {
 	
 	@RequestMapping("adicionaTreino")
 	public String adiciona(@Valid Treino treino, BindingResult result) throws ClassNotFoundException {
-		if(result.hasFieldErrors("identificacao") || result.hasFieldErrors("descricao")) {
+		if(result.hasFieldErrors("identificacao")) {
 			 return "treino/formulario";
 	     }
 		daoTreino.adiciona(treino);
@@ -45,7 +45,7 @@ public class TreinoController {
 	
 	@RequestMapping("alteraTreino")
 	public String altera(@Valid Treino treino, BindingResult result) throws ClassNotFoundException {
-		if(result.hasFieldErrors("identificacao") || result.hasFieldErrors("descricao")) {
+		if(result.hasFieldErrors("identificacao")) {
 			 return "treino/mostra";
 	     }
 		daoTreino.altera(treino);

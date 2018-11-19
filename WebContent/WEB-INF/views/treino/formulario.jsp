@@ -16,12 +16,19 @@
 	Cadastro de Usuarios <br /><br />
 	
 	<form action="adicionaTreino" method="post">
-				<label for="Identificacao">Identificação</label>  
+				<label for="Identificacao">Identificação</label>
 				<input type="text" name="identificacao" value="${treino.identificacao}" >
 				<form:errors path="treino.identificacao" cssStyle="color:#B71C1C"/><br />
-		
+				
+				<label for="DataInicio">Data de Inicio</label>
+				<input type="text" name="dataInicio" value="${treino.dataInicio}" >
+				<form:errors path="treino.dataInicio" cssStyle="color:#B71C1C"/><br />
 				<input type="submit" value="Criar">
-		
+				
+				<label for="DataFim">Data Fim</label>
+				<input type="text" name="dataFim" value="${treino.dataFim}" >
+				<form:errors path="treino.dataFim" cssStyle="color:#B71C1C"/><br />
+				<input type="submit" value="Criar">
 	</form>
 </body>
 </html>

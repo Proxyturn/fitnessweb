@@ -11,22 +11,23 @@
 <body>
 <c:import url="/WEB-INF/views/principal/menu.jsp"/>
 	<br />
-	<a href="novoCatalogo">Cadastrar novo catalogo</a>
+	<a href="novoTreino">Cadastrar novo treino</a>
 	<br />
 	<br />
 	<table>
 		<tr>
 			<th>Id</th>
 			<th>Identificacao</th>
-			<th>descricao</th>
 			<th></th>
 			<th></th>
 		</tr>
 		<c:forEach items="${treinos}" var="treino">
 			<tr>
-				<td>${catalogo.id}</td>
-				<td>${catalogo.identificacao}</td>
-				<td>${catalogo.descricao}</td>
+				<td>${treino.id}</td>
+				<td>${treino.idTreinoUsuario}</td>
+				<td>${treino.identificacao}</td>
+				<td><fmt:formatDate value="${usuario.dataInicio.time}" pattern="dd/MM/yyyy" /></td>
+				<td><fmt:formatDate value="${usuario.dataFim.time}" pattern="dd/MM/yyyy" /></td>
 				<td><a href="mostraTreino?id=${treino.id}" title="Editar">Editar</a></td>
 				<td><a href="removeTreino?id=${treino.id}" title="Excluir">Excluir</a></td>
 			</tr>
