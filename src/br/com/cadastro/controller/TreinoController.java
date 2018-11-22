@@ -17,6 +17,11 @@ public class TreinoController {
     @Autowired
     TreinoDAO daoTreino;
     
+	@RequestMapping("/")
+	public String listaTreinoRaiz() {
+		return "treino/lista";
+	}
+    
 	@RequestMapping("listaTreinos")
     public String lista(Model modelTreino) throws ClassNotFoundException {
         modelTreino.addAttribute("treinos", daoTreino.lista());

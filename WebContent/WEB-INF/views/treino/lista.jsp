@@ -6,6 +6,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<h4>Olá ${usuarioLogado.login}, Seja bem vindo Sistema.</h4><br />
+
 <title>Sistema Cadastro</title>
 </head>
 <body>
@@ -20,6 +22,7 @@
 			<th>Identificacao</th>
 			<th></th>
 			<th></th>
+			<th></th>
 		</tr>
 		<c:forEach items="${treinos}" var="treino">
 			<tr>
@@ -28,6 +31,7 @@
 				<td>${treino.identificacao}</td>
 				<td><fmt:formatDate value="${usuario.dataInicio.time}" pattern="dd/MM/yyyy" /></td>
 				<td><fmt:formatDate value="${usuario.dataFim.time}" pattern="dd/MM/yyyy" /></td>
+				<td><a href="listaDias?id=${treino.id}" title="Inserir Dias">Inserir Dias</a></td>
 				<td><a href="mostraTreino?id=${treino.id}" title="Editar">Editar</a></td>
 				<td><a href="removeTreino?id=${treino.id}" title="Excluir">Excluir</a></td>
 			</tr>
