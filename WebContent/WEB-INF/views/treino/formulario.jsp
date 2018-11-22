@@ -13,7 +13,7 @@
 <c:import url="/WEB-INF/views/principal/menu.jsp"/>
 <br />
 	
-	Cadastro de Usuarios <br /><br />
+	Cadastro de Treinos <br /><br />
 	
 	<form action="adicionaTreino" method="post">
 				<label for="Identificacao">Identificação</label>
@@ -21,12 +21,11 @@
 				<form:errors path="treino.identificacao" cssStyle="color:#B71C1C"/><br />
 				
 				<label for="DataInicio">Data de Inicio</label>
-				<input type="text" name="dataInicio" value="${treino.dataInicio}" >
+				<input type="date" name="dataInicio" value="${treino.dataInicio}" >
 				<form:errors path="treino.dataInicio" cssStyle="color:#B71C1C"/><br />
-				<input type="submit" value="Criar">
 				
 				<label for="DataFim">Data Fim</label>
-				<input type="text" name="dataFim" value="${treino.dataFim}" >
+				<input type="date" name="dataFim" value="${treino.dataFim}" >
 				<form:errors path="treino.dataFim" cssStyle="color:#B71C1C"/><br />
 				<input type="submit" value="Criar">
 	</form>
