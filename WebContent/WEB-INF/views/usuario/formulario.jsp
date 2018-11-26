@@ -10,10 +10,9 @@
 <title>Sistema Cadastro</title>
 </head>
 <body>
-<c:import url="/WEB-INF/views/principal/menu.jsp"/>
 <br />
 	
-	Cadastro de Usuarios <br /><br />
+	Registro de Usuário <br /><br />
 	
 	<form action="adicionaUsuario" method="post">
 				<label for="Nome">Nome</label>  
@@ -39,5 +38,6 @@
 				<input type="submit" value="Criar">
 		
 	</form>
+	
 </body>
 </html>

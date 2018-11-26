@@ -9,6 +9,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.cadastro.dao.TreinoDAO;
+import br.com.cadastro.dao.UsuarioDAO;
 import br.com.cadastro.model.Treino;
 
 @Controller
@@ -17,19 +18,26 @@ public class TreinoController {
     @Autowired
     TreinoDAO daoTreino;
     
+    @Autowired
+    UsuarioDAO daoUsuario;
+    
 	@RequestMapping("/")
-	public String listaTreinoRaiz() {
+	public String listaTreinoRaiz(Model modelTreino, Model modelUsuario) {
+        modelTreino.addAttribute("treinos", daoTreino.lista());
+        modelUsuario.addAttribute("usuarios", daoUsuario.lista());
 		return "treino/lista";
 	}
     
 	@RequestMapping("listaTreinos")
-    public String lista(Model modelTreino) throws ClassNotFoundException {
+    public String lista(Model modelTreino, Model modelUsuario) throws ClassNotFoundException {
         modelTreino.addAttribute("treinos", daoTreino.lista());
+        modelUsuario.addAttribute("usuarios", daoUsuario.lista());
         return "treino/lista";
     }
 
 	@RequestMapping("novoTreino")
-	public String form() {
+	public String form(long id, Model modelUsuario) {
+		 modelUsuario.addAttribute("usuario", daoUsuario.buscaPorId(id));
 		return "treino/formulario";
 	}
 	
