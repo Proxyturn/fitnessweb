@@ -12,21 +12,29 @@
 <body>
 	<c:import url="/WEB-INF/views/principal/menu.jsp"/>
 	<br />
-	Alterar catalogo: ${catalogo.id}	
+	Alterar treino: ${treino.id}	
 	<br />
 	<br />
 	
 	<form action="alteraCatalogo" method="post" class="form-horizontal">
 	
-	<input type="hidden" name="id" value="${catalogo.id}" />
+	<input type="hidden" name="id" value="${treino.id}" />
 				
 		<label for="Identificacao">Identificação</label>  
-		<input type="text" name="identificacao" value="${catalogo.identificacao}" >
+		<input type="text" name="identificacao" value="${treino.identificacao}" >
 		<form:errors path="catalogo.identificacao" cssStyle="color:#B71C1C"/><br />
 	
 		<label for="Descricao">Descrição</label>  
-		<input type="text" name="descricao" value="${catalogo.descricao}" >
-		<form:errors path="catalogo.descricao" cssStyle="color:#B71C1C"/><br />
+		<input type="text" name="descricao" value="${treino.descricao}" >
+		<form:errors path="treino.descricao" cssStyle="color:#B71C1C"/><br />
+		
+		<label for="DataInicio">Data de Início</label>  
+		<input type="text" name="dataInicio" value ="<fmt:formatDate value="${treino.dataInicio.time}" pattern="dd/MM/yyyy" />" > 
+		<form:errors path="treino.dataInicio" cssStyle="color:#B71C1C"/><br />
+		
+		<label for="DataFim">Data Fim</label>  
+		<input type="text" name="dataFim" value ="<fmt:formatDate value="${treino.dataFim.time}" pattern="dd/MM/yyyy" />" > 
+		<form:errors path="treino.dataFim" cssStyle="color:#B71C1C"/><br />
 	
 	<input type="submit" value="Alterar">
 	

@@ -29,12 +29,31 @@ public class TreinoDAO {
 	}
 	
 	public void adiciona(Treino treino){
-		String sql = "insert into treinos (identificacao) " +
-					"values (?)";
+		String sql = "insert into treinos (identificacao, dataInicio, dataFim) " +
+					"values (?, ?, ?)";
 		
 		try{
 			PreparedStatement stmt = this.connection.prepareStatement(sql);
 			stmt.setString(1, treino.getIdentificacao());
+			
+			if(treino.getDataInicio() != null)
+			{
+				stmt.setDate(4, new java.sql.Date(treino.getDataInicio().getTimeInMillis()));
+			}
+			else
+			{
+				stmt.setDate(4, null);
+			}
+			
+			if(treino.getDataFim() != null)
+			{
+				stmt.setDate(4, new java.sql.Date(treino.getDataFim().getTimeInMillis()));
+			}
+			else
+			{
+				stmt.setDate(4, null);
+			}
+			
 
 		
 			stmt.execute();
@@ -57,7 +76,6 @@ public class TreinoDAO {
 				
 				treino.setId(rs.getLong("id"));
 				treino.setIdTreinoUsuario(rs.getLong("idTreinoUsuario"));
-				treino.setStatus(rs.getLong("status"));
 				treino.setIdentificacao(rs.getString("identificacao"));
 				if(rs.getDate("dataInicio") != null){
 					Calendar dataInicio = Calendar.getInstance();
