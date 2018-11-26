@@ -29,8 +29,8 @@ public class TreinoDAO {
 	}
 	
 	public void adiciona(Treino treino){
-		String sql = "insert into treinos (identificacao, dataInicio, dataFim) " +
-					"values (?, ?, ?)";
+		String sql = "insert into treinos (identificacao, dataInicio, dataFim, status, idTreinoUsuario) " +
+					" values (?, ?, ?, ?, ?)";
 		
 		try{
 			PreparedStatement stmt = this.connection.prepareStatement(sql);
@@ -38,23 +38,24 @@ public class TreinoDAO {
 			
 			if(treino.getDataInicio() != null)
 			{
-				stmt.setDate(4, new java.sql.Date(treino.getDataInicio().getTimeInMillis()));
+				stmt.setDate(2, new java.sql.Date(treino.getDataInicio().getTimeInMillis()));
 			}
 			else
 			{
-				stmt.setDate(4, null);
+				stmt.setDate(2, null);
 			}
 			
 			if(treino.getDataFim() != null)
 			{
-				stmt.setDate(4, new java.sql.Date(treino.getDataFim().getTimeInMillis()));
+				stmt.setDate(3, new java.sql.Date(treino.getDataFim().getTimeInMillis()));
 			}
 			else
 			{
-				stmt.setDate(4, null);
+				stmt.setDate(3, null);
 			}
 			
-
+			stmt.setLong(4, treino.getStatus());
+			stmt.setLong(5, treino.getIdTreinoUsuario());
 		
 			stmt.execute();
 			stmt.close();
@@ -75,7 +76,6 @@ public class TreinoDAO {
 				Treino treino = new Treino();
 				
 				treino.setId(rs.getLong("id"));
-				treino.setIdTreinoUsuario(rs.getLong("idTreinoUsuario"));
 				treino.setIdentificacao(rs.getString("identificacao"));
 				if(rs.getDate("dataInicio") != null){
 					Calendar dataInicio = Calendar.getInstance();
@@ -87,6 +87,9 @@ public class TreinoDAO {
 					dataFim.setTime(rs.getDate("dataFim"));
 					treino.setDataFim(dataFim);
 				}
+				treino.setStatus(rs.getLong("status"));
+				treino.setIdTreinoUsuario(rs.getLong("idTreinoUsuario"));
+				
 				treinos.add(treino);
 			}
 			rs.close();
@@ -124,8 +127,22 @@ public class TreinoDAO {
 				if(id == rs.getLong("id"))
 				{
 					Treino treino = new Treino();
+					
 					treino.setId(rs.getLong("id"));
 					treino.setIdentificacao(rs.getString("identificacao"));
+					if(rs.getDate("dataInicio") != null){
+						Calendar dataInicio = Calendar.getInstance();
+						dataInicio.setTime(rs.getDate("dataInicio"));
+						treino.setDataInicio(dataInicio);
+					}
+					if(rs.getDate("dataFim") != null){
+						Calendar dataFim = Calendar.getInstance();
+						dataFim.setTime(rs.getDate("dataFim"));
+						treino.setDataFim(dataFim);
+					}
+					treino.setStatus(rs.getLong("status"));
+					treino.setIdTreinoUsuario(rs.getLong("idTreinoUsuario"));
+					
 					return treino;
 				}
 			}

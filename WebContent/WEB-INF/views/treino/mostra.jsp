@@ -18,23 +18,24 @@
 	
 	<form action="alteraCatalogo" method="post" class="form-horizontal">
 	
-	<input type="hidden" name="id" value="${treino.id}" />
+				<input type="hidden" name="id" value="${treino.id}" />
 				
-		<label for="Identificacao">Identificação</label>  
-		<input type="text" name="identificacao" value="${treino.identificacao}" >
-		<form:errors path="catalogo.identificacao" cssStyle="color:#B71C1C"/><br />
-	
-		<label for="Descricao">Descrição</label>  
-		<input type="text" name="descricao" value="${treino.descricao}" >
-		<form:errors path="treino.descricao" cssStyle="color:#B71C1C"/><br />
-		
-		<label for="DataInicio">Data de Início</label>  
-		<input type="text" name="dataInicio" value ="<fmt:formatDate value="${treino.dataInicio.time}" pattern="dd/MM/yyyy" />" > 
-		<form:errors path="treino.dataInicio" cssStyle="color:#B71C1C"/><br />
-		
-		<label for="DataFim">Data Fim</label>  
-		<input type="text" name="dataFim" value ="<fmt:formatDate value="${treino.dataFim.time}" pattern="dd/MM/yyyy" />" > 
-		<form:errors path="treino.dataFim" cssStyle="color:#B71C1C"/><br />
+				<label for="Identificacao">Identificação</label>
+				<input type="text" name="identificacao" value="${treino.identificacao}" >
+				<form:errors path="treino.identificacao" cssStyle="color:#B71C1C"/><br />
+				
+				<label for="Status">Status</label>
+				<input type="text" name="status" value="${treino.status}" >
+				<form:errors path="treino.status" cssStyle="color:#B71C1C"/><br />
+				
+				<label for="DataInicio">Data de Inicio</label>
+				<input type="text" name="dataInicio" value="<fmt:formatDate value="${treino.dataInicio.time}" pattern="dd/MM/yyyy" />" >
+				<form:errors path="treino.dataInicio" cssStyle="color:#B71C1C"/><br />
+				
+				<label for="DataFim">Data Fim</label>
+				<input type="text" name="dataFim" value="<fmt:formatDate value="${treino.dataFim.time}" pattern="dd/MM/yyyy" />">
+				<form:errors path="treino.dataFim" cssStyle="color:#B71C1C"/><br />
+				
 	
 	<input type="submit" value="Alterar">
 	

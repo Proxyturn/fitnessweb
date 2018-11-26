@@ -34,8 +34,13 @@ public class UsuarioController {
 			 return "usuario/formulario";
 	     }
 		daoUsuario.adiciona(usuario);
-		return "redirect:listaUsuarios";
+		return "redirect:cadastroOk";
+	
 	}
+	@RequestMapping("cadastroOk")
+    public String lista() throws ClassNotFoundException {
+        return "usuario/cadastroSucesso";
+    }
 	
 	@RequestMapping("mostraUsuario")
     public String mostra(Long id, Model modelUsuario) throws ClassNotFoundException {

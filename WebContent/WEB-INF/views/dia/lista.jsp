@@ -14,7 +14,7 @@
 	<a href="novoDia?id=${treino.id}">Cadastrar novo dia</a>
 	<br />
 	<br />
-	<table>
+	<table border="1">
 		<tr>
 			<th>Id</th>
 			<th>Identificacao</th>
@@ -24,14 +24,16 @@
 			<th></th>
 		</tr>
 		<c:forEach items="${dias}" var="dia">
-			<tr>
-				<td>${dia.id}</td>
-				<td>${dia.identificacao}</td>
-				<td>${dia.idDiasTreino}</td>
-				<td><a href="listaExercicios?id=${dia.id}" title="Inserir Exercícios">Inserir Exercícios</a></td>
-				<td><a href="mostraDia?id=${dia.id}" title="Editar">Editar</a></td>
-				<td><a href="removeDia?id=${dia.id}&idTreino=${dia.idDiasTreino}" title="Excluir">Excluir</a></td>
-			</tr>
+			<c:if test="${dia.idDiasTreino == treino.id}">
+				<tr>
+					<td>${dia.id}</td>
+					<td>${dia.identificacao}</td>
+					<td>${dia.idDiasTreino}</td>
+					<td><a href="listaExercicios?id=${dia.id}" title="Inserir Exercícios">Inserir Exercícios</a></td>
+					<td><a href="mostraDia?id=${dia.id}" title="Editar">Editar</a></td>
+					<td><a href="removeDia?id=${dia.id}&idTreino=${dia.idDiasTreino}" title="Excluir">Excluir</a></td>
+				</tr>
+			</c:if>
 		</c:forEach>
 	</table>
 </body>

@@ -6,35 +6,53 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<h4>Olá ${usuarioLogado.login}, Seja bem vindo Sistema.</h4><br />
-
 <title>Sistema Cadastro</title>
 </head>
 <body>
 <c:import url="/WEB-INF/views/principal/menu.jsp"/>
+
+
+
+
+		<c:forEach items="${usuarios}" var="usuario">
+		 	<c:if test="${usuario.login == usuarioLogado.login}">
+ 					<c:set var="idUsuario" value="${usuario.id}"></c:set>
+ 					
+ 			</c:if>
+		</c:forEach>
+ 
+ 
 	<br />
-	<a href="novoTreino">Cadastrar novo treino</a>
+	<a href="novoTreino?id=${idUsuario}">Cadastrar novo treino</a>
 	<br />
 	<br />
-	<table>
+	<table border="1">
 		<tr>
 			<th>Id</th>
+			<th>Id Usuario</th>
 			<th>Identificacao</th>
+			<th>Status</th>
+			<th>Data de Inicio</th>
+			<th>Data Fim</th>
 			<th></th>
 			<th></th>
 			<th></th>
+		
 		</tr>
 		<c:forEach items="${treinos}" var="treino">
-			<tr>
-				<td>${treino.id}</td>
-				<td>${treino.idTreinoUsuario}</td>
-				<td>${treino.identificacao}</td>
-				<td><fmt:formatDate value="${usuario.dataInicio.time}" pattern="dd/MM/yyyy" /></td>
-				<td><fmt:formatDate value="${usuario.dataFim.time}" pattern="dd/MM/yyyy" /></td>
-				<td><a href="listaDias?id=${treino.id}" title="Inserir Dias">Inserir Dias</a></td>
-				<td><a href="mostraTreino?id=${treino.id}" title="Editar">Editar</a></td>
-				<td><a href="removeTreino?id=${treino.id}" title="Excluir">Excluir</a></td>
-			</tr>
+				<c:if test="${idUsuario == treino.idTreinoUsuario}">
+					<tr>
+						<td>${treino.id}</td>
+						<td>${treino.idTreinoUsuario}</td>
+						<td>${treino.identificacao}</td>
+						<td>${treino.status}</td>
+						<td><fmt:formatDate value="${treino.dataInicio.time}" pattern="dd/MM/yyyy" /></td>
+						<td><fmt:formatDate value="${treino.dataFim.time}" pattern="dd/MM/yyyy" /></td>
+						<td><a href="listaDias?id=${treino.id}" title="Inserir Dias">Inserir Dias</a></td>
+						<td><a href="mostraTreino?id=${treino.id}" title="Editar">Editar</a></td>
+						<td><a href="removeTreino?id=${treino.id}" title="Excluir">Excluir</a></td>
+					</tr>
+				</c:if>
 		</c:forEach>
 	</table>
 </body>

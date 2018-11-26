@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.cadastro.dao.DiaDAO;
 import br.com.cadastro.dao.TreinoDAO;
+import br.com.cadastro.dao.UsuarioDAO;
 import br.com.cadastro.model.Dia;
 
 @Controller
@@ -20,6 +21,7 @@ public class DiaController {
     
     @Autowired
     TreinoDAO daoTreino;
+   
     
 	@RequestMapping("listaDias")
     public String lista(Long id, Model modelDia, Model modelTreino) throws ClassNotFoundException {
