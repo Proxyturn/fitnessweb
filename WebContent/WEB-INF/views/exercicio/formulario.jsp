@@ -13,20 +13,19 @@
 <c:import url="/WEB-INF/views/principal/menu.jsp"/>
 <br />
 	
-	Cadastro de Usuarios <br /><br />
+	Cadastro de Exercicios <br /><br />
 	
-	<form action="adicionaCatalogo" method="post">
-				<label for="repeticoes">Repetições</label>  
+				<form action="adicionaExercicio?id=${dia.id}" method="post">
+				
+				<label for="Repeticoes">Repetições</label>  
 				<input type="text" name="repeticoes" value="${exercicio.repeticoes}" >
 				<form:errors path="exercicio.repeticoes" cssStyle="color:#B71C1C"/><br />
-	
-				<label for="idExerciciosDias">Dias</label>  
-				<input type="text" name="idExerciciosDias" value="${exercicio.idExerciciosDias}" >
-				<form:errors path="exercicio.idExerciciosDias" cssStyle="color:#B71C1C"/><br />
+	 
+				<input type="text" name="idExerciciosDias" value="${dia.id}" >
 				
-				<label for="idExerciciosCatalogo">Exercicio</label>  
-				<input type="text" name="idExerciciosCatalogo" value="${exercicio.idExerciciosCatalogo}" >
-				<form:errors path="exercicio.idExerciciosCatalogo" cssStyle="color:#B71C1C"/><br />
+				<label for="ID ExerciciosCatalogos">Exercicios</label>  
+				<input type="text" name="idExerciciosCatalogos" value="${exercicio.idExerciciosCatalogos}" >
+				<form:errors path="exercicio.idExerciciosCatalogos" cssStyle="color:#B71C1C"/><br />
 		
 				<input type="submit" value="Criar">
 		

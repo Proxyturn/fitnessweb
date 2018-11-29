@@ -154,14 +154,32 @@ public class TreinoDAO {
 	
 	
 	public void altera(Treino treino){
-		String sql = "update treinos set identificacao=?where id=?";
+		String sql = "update treinos set identificacao=?, dataInicio=?, dataFim=?, status=? where id=?";
 		
 		try{
 			PreparedStatement stmt = this.connection.prepareStatement(sql);
 			
 			stmt.setString(1, treino.getIdentificacao());
-			stmt.setLong(3, treino.getId());
-				
+			
+			if(treino.getDataInicio() != null)
+			{
+				stmt.setDate(2, new java.sql.Date(treino.getDataInicio().getTimeInMillis()));
+			}
+			else
+			{
+				stmt.setDate(2, null);
+			}
+			if(treino.getDataFim() != null)
+			{
+				stmt.setDate(3, new java.sql.Date(treino.getDataFim().getTimeInMillis()));
+			}
+			else
+			{
+				stmt.setDate(3, null);
+			}
+			stmt.setLong(4, treino.getStatus());
+			stmt.setLong(5, treino.getId());
+			
 			stmt.execute();
 			stmt.close();
 			
