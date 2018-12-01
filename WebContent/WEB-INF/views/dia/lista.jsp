@@ -19,9 +19,6 @@
 			<th>Id</th>
 			<th>Identificacao</th>
 			<th>idDiasTreino</th>
-			<th></th>
-			<th></th>
-			<th></th>
 		</tr>
 		<c:forEach items="${dias}" var="dia">
 			<c:if test="${dia.idDiasTreino == treino.id}">

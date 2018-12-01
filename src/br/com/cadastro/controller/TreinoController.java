@@ -58,7 +58,8 @@ public class TreinoController {
 	
 	@RequestMapping("alteraTreino")
 	public String altera(@Valid Treino treino, BindingResult result) throws ClassNotFoundException {
-		if(result.hasFieldErrors("identificacao")) {
+		if(result.hasFieldErrors("identificacao") || result.hasFieldErrors("dataInicio") 
+				|| result.hasFieldErrors("dataFim") || result.hasFieldErrors("status")) {
 			 return "treino/mostra";
 	     }
 		daoTreino.altera(treino);

@@ -50,7 +50,8 @@ public class UsuarioController {
 	
 	@RequestMapping("alteraUsuario")
 	public String altera(@Valid Usuario usuario, BindingResult result) throws ClassNotFoundException {
-		if(result.hasFieldErrors("nome") || result.hasFieldErrors("login") || result.hasFieldErrors("senha") || result.hasFieldErrors("dataNascimento") || result.hasFieldErrors("altura")) {
+		if(result.hasFieldErrors("nome") || result.hasFieldErrors("login") || result.hasFieldErrors("senha") 
+				|| result.hasFieldErrors("dataNascimento") || result.hasFieldErrors("altura")) {
 			 return "usuario/mostra";
 	     }
 		daoUsuario.altera(usuario);

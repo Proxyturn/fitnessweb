@@ -16,7 +16,7 @@
 	<br />
 	<br />
 	
-	<form action="alteraCatalogo" method="post" class="form-horizontal">
+	<form action="alteraTreino" method="post" class="form-horizontal">
 	
 				<input type="hidden" name="id" value="${treino.id}" />
 				

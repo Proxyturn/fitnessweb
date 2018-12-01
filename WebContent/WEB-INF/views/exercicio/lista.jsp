@@ -11,25 +11,31 @@
 <body>
 <c:import url="/WEB-INF/views/principal/menu.jsp"/>
 	<br />
-	<a href="novoExercicio">Cadastrar novo exercicios</a>
+	<a href="novoExercicio?id=${dia.id}">Cadastrar novo exercicios</a>
 	<br />
 	<br />
-	<table>
+	<table border="1">
 		<tr>
 			<th>Id</th>
-			<th>Identificacao</th>
-			<th>descricao</th>
-			<th></th>
-			<th></th>
+			<th>Repetições</th>
+			<th>Exercícios</th>
 		</tr>
-		<c:forEach items="${catalogos}" var="catalogo">
-			<tr>
-				<td>${catalogo.id}</td>
-				<td>${catalogo.identificacao}</td>
-				<td>${catalogo.descricao}</td>
-				<td><a href="mostraCatalogo?id=${catalogo.id}" title="Editar">Editar</a></td>
-				<td><a href="removeCatalogo?id=${catalogo.id}" title="Excluir">Excluir</a></td>
-			</tr>
+		<c:forEach items="${exercicios}" var="exercicio">
+			<c:if test="${exercicio.idExerciciosDias == dia.id}">
+				<tr>
+					<td>${exercicio.id}</td>
+					<td>${exercicio.repeticoes}</td>
+					<td>
+						<c:forEach items="${catalogos}" var="catalogo">
+							<c:if test="${exercicio.idExerciciosCatalogos == catalogo.id}">
+								${catalogo.identificacao}
+							</c:if>
+						</c:forEach>
+					</td>
+					<td><a href="mostraExercicio?id=${exercicio.id}" title="Editar">Editar</a></td>
+					<td><a href="removeExercicio?id=${exercicio.id}" title="Excluir">Excluir</a></td>
+				</tr>
+			</c:if>
 		</c:forEach>
 	</table>
 </body>

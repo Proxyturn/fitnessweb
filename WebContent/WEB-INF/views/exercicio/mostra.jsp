@@ -12,21 +12,25 @@
 <body>
 	<c:import url="/WEB-INF/views/principal/menu.jsp"/>
 	<br />
-	Alterar catalogo: ${catalogo.id}	
+	Alterar exercicio: ${exercicio.id}	
 	<br />
 	<br />
 	
-	<form action="alteraCatalogo" method="post" class="form-horizontal">
+	<form action="alteraExercicio" method="post" class="form-horizontal">
 	
-	<input type="hidden" name="id" value="${catalogo.id}" />
+	<input type="hidden" name="id" value="${exercicio.id}" />
 				
-		<label for="Identificacao">Identificação</label>  
-		<input type="text" name="identificacao" value="${catalogo.identificacao}" >
-		<form:errors path="catalogo.identificacao" cssStyle="color:#B71C1C"/><br />
+		<label for="Repeticao">Repetições</label>  
+		<input type="text" name="repeticao" value="${exercicio.repeticao}" >
+		<form:errors path="exercicio.repeticao" cssStyle="color:#B71C1C"/><br />
 	
-		<label for="Descricao">Descrição</label>  
-		<input type="text" name="descricao" value="${catalogo.descricao}" >
-		<form:errors path="catalogo.descricao" cssStyle="color:#B71C1C"/><br />
+		<label for="IdExerciciosDias">idExerciciosDias  </label>  
+		<input type="text" name="idExerciciosDias" value="${exercicio.idExerciciosDias}" >
+		<form:errors path="exercicio.idExerciciosDias" cssStyle="color:#B71C1C"/><br />
+		
+		<label for="IdExerciciosCatalogos">idExerciciosCatalogos  </label>  
+		<input type="text" name="idExerciciosCatalogos" value="${exercicio.idExerciciosCatalogos}" >
+		<form:errors path="exercicio.idExerciciosCatalogos" cssStyle="color:#B71C1C"/><br />
 	
 	<input type="submit" value="Alterar">
 	
