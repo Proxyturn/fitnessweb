@@ -20,11 +20,13 @@
 				<label for="Repeticoes">Repetições</label>  
 				<input type="text" name="repeticoes" value="${exercicio.repeticoes}" >
 				<form:errors path="exercicio.repeticoes" cssStyle="color:#B71C1C"/><br />
-	 
-				<input type="text" name="idExerciciosDias" value="${dia.id}" >
 				
-				<label for="ID ExerciciosCatalogos">Exercicios</label>  
-				<input type="text" name="idExerciciosCatalogos" value="${exercicio.idExerciciosCatalogos}" >
+	 			<label for="IdExerciciosDias">idDia</label>
+				<input type="text" name="idExerciciosDias" value="${dia.id}" >
+				<form:errors path="exercicio.idExerciciosDias" cssStyle="color:#B71C1C"/><br />
+				
+				<label for="IdExerciciosCatalogos">idExercício</label>  
+				<input type="text" name="idExerciciosCatalogos" value="${catalogo.id}" >
 				<form:errors path="exercicio.idExerciciosCatalogos" cssStyle="color:#B71C1C"/><br />
 		
 				<input type="submit" value="Criar">

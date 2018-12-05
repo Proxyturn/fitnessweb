@@ -29,11 +29,4 @@ public class Catalogo {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public void setIdDiasTreino(String string) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-
 }

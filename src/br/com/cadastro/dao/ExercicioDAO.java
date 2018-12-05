@@ -132,5 +132,4 @@ public class ExercicioDAO {
 			throw new RuntimeException(e);
 		}
 	}
-	
 }

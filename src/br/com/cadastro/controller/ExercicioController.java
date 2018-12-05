@@ -42,7 +42,7 @@ public class ExercicioController {
 	
 	@RequestMapping("adicionaExercicio")
 	public String adiciona(@Valid Exercicio exercicio, BindingResult result, long id) throws ClassNotFoundException {
-		if(result.hasFieldErrors("repeticoes")) {
+		if(result.hasFieldErrors("repeticoes") || result.hasFieldErrors("idExerciciosCatalogos") || result.hasFieldErrors("idExerciciosDias")) {
 			 return "exercicio/formulario";
 	     }
 		daoExercicio.adiciona(exercicio);
@@ -65,9 +65,8 @@ public class ExercicioController {
     }
 	
     @RequestMapping("removeExercicio")
-    public String remove(Exercicio exercicio, long id) throws ClassNotFoundException {
+    public String remove(Exercicio exercicio, long idDia) throws ClassNotFoundException {
     	daoExercicio.remove(exercicio);
-        return "redirect:listaExercicios?id="+id+"";
+        return "redirect:listaExercicios?id="+idDia+"";
     }
-    
 }

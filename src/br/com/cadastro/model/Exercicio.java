@@ -21,8 +21,8 @@ public class Exercicio {
 	public String getRepeticoes() {
 		return repeticoes;
 	}
-	public void setRepeticoes(String identificacao) {
-		this.repeticoes = identificacao;
+	public void setRepeticoes(String repeticoes) {
+		this.repeticoes = repeticoes;
 	}
 	public Long getIdExerciciosDias() {
 		return idExerciciosDias;
@@ -36,7 +36,4 @@ public class Exercicio {
 	public void setIdExerciciosCatalogos(Long idExerciciosCatalogos) {
 		this.idExerciciosCatalogos = idExerciciosCatalogos;
 	}
-
-
-
 }
