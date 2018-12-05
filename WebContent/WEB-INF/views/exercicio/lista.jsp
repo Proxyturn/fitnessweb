@@ -16,7 +16,7 @@
 	<br />
 	<table border="1">
 		<tr>
-			<th>Id</th>
+			<th>ID do Dia</th>
 			<th>Repetições</th>
 			<th>Exercícios</th>
 		</tr>
