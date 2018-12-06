@@ -24,7 +24,8 @@ public class CatalogoController {
     }
 
 	@RequestMapping("novoCatalogo")
-	public String form() {
+	public String form(Model modelCatalogo) {
+		modelCatalogo.addAttribute("catalogos", daoCatalogo.lista());
 		return "catalogo/formulario";
 	}
 	

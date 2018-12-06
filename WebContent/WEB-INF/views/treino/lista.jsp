@@ -12,12 +12,9 @@
 <c:import url="/WEB-INF/views/principal/menu.jsp"/>
 
 
-
-
 		<c:forEach items="${usuarios}" var="usuario">
 		 	<c:if test="${usuario.login == usuarioLogado.login}">
  					<c:set var="idUsuario" value="${usuario.id}"></c:set>
- 					
  			</c:if>
 		</c:forEach>
  

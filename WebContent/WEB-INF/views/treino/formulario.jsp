@@ -20,9 +20,8 @@
 				<input type="text" name="identificacao" value="${treino.identificacao}" >
 				<form:errors path="treino.identificacao" cssStyle="color:#B71C1C"/><br />
 				
-				<label for="Status">Status</label>
-				<input type="text" name="status" value="${treino.status}" >
-				<form:errors path="treino.status" cssStyle="color:#B71C1C"/><br />
+				<input type="hidden" name="status" value="1" >
+				<form:errors path="treino.status" cssStyle="color:#B71C1C"/>
 				
 				<label for="DataInicio">Data de Inicio</label>
 				<input type="text" name="dataInicio" value="${treino.dataInicio.time}" >
@@ -32,7 +31,7 @@
 				<input type="text" name="dataFim" value="${treino.dataFim.time}" >
 				<form:errors path="treino.dataFim" cssStyle="color:#B71C1C"/><br />
 				
-				<input type="text" name="idTreinoUsuario" value="${usuario.id}">
+				<input type="hidden" name="idTreinoUsuario" value="${usuario.id}">
 				
 				<input type="submit" value="Criar">
 	</form>

@@ -35,39 +35,35 @@ public class ExercicioController {
     }
 
 	@RequestMapping("novoExercicio")
-	public String form(long id, Model modelDia) {
+	public String form(long id, Model modelDia, Model modelCatalogo) {
+		 modelCatalogo.addAttribute("catalogos", daoCatalogo.lista());
 		 modelDia.addAttribute("dia", daoDia.buscaPorId(id));
 		return "exercicio/formulario";
 	}
 	
 	@RequestMapping("adicionaExercicio")
 	public String adiciona(@Valid Exercicio exercicio, BindingResult result, long id) throws ClassNotFoundException {
-		if(result.hasFieldErrors("repeticoes")) {
-			 return "exercicio/formulario";
-	     }
 		daoExercicio.adiciona(exercicio);
 		return "redirect:listaExercicios?id="+id+"";
 	}
 	
 	@RequestMapping("mostraExercicio")
-    public String mostra(Long id, Model modelExercicio) throws ClassNotFoundException {
+    public String mostra(Long id, Model modelExercicio, Model modelCatalogo) throws ClassNotFoundException {
+		modelCatalogo.addAttribute("catalogos", daoCatalogo.lista());
         modelExercicio.addAttribute("exercicio", daoExercicio.buscaPorId(id));
         return "exercicio/mostra";
     }
 	
 	@RequestMapping("alteraExercicio")
-	public String altera(@Valid Exercicio exercicio, BindingResult result, long id) throws ClassNotFoundException {
-		if(result.hasFieldErrors("repeticoes")) {
-			 return "exercicio/mostra";
-	     }
+	public String altera(@Valid Exercicio exercicio, BindingResult result, long idExercicio) throws ClassNotFoundException {
 		daoExercicio.altera(exercicio);
-		return "redirect:listaExercicios?id="+id+"";
+		return "redirect:listaExercicios?id="+idExercicio+"";
     }
 	
     @RequestMapping("removeExercicio")
-    public String remove(Exercicio exercicio, long id) throws ClassNotFoundException {
+    public String remove(Exercicio exercicio, long idExercicio) throws ClassNotFoundException {
     	daoExercicio.remove(exercicio);
-        return "redirect:listaExercicios?id="+id+"";
+        return "redirect:listaExercicios?id="+idExercicio+"";
     }
     
 }

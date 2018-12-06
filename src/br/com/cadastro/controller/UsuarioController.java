@@ -37,8 +37,9 @@ public class UsuarioController {
 		return "redirect:cadastroOk";
 	
 	}
+	
 	@RequestMapping("cadastroOk")
-    public String lista() throws ClassNotFoundException {
+    public String lista1(){
         return "usuario/cadastroSucesso";
     }
 	

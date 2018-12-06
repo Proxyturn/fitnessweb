@@ -20,17 +20,19 @@
 	
 	<input type="hidden" name="id" value="${exercicio.id}" />
 				
-		<label for="Repeticao">Repetições</label>  
-		<input type="text" name="repeticao" value="${exercicio.repeticao}" >
-		<form:errors path="exercicio.repeticao" cssStyle="color:#B71C1C"/><br />
-	
-		<label for="IdExerciciosDias">idExerciciosDias  </label>  
-		<input type="text" name="idExerciciosDias" value="${exercicio.idExerciciosDias}" >
-		<form:errors path="exercicio.idExerciciosDias" cssStyle="color:#B71C1C"/><br />
-		
-		<label for="IdExerciciosCatalogos">idExerciciosCatalogos  </label>  
-		<input type="text" name="idExerciciosCatalogos" value="${exercicio.idExerciciosCatalogos}" >
-		<form:errors path="exercicio.idExerciciosCatalogos" cssStyle="color:#B71C1C"/><br />
+				<label for="Repeticoes">Repetições</label>  
+				<input type="text" name="repeticoes" value="${exercicio.repeticoes}" >
+				<form:errors path="exercicio.repeticoes" cssStyle="color:#B71C1C"/><br />
+	 
+				<input type="hidden" name="idExerciciosDias" value="${dia.id}" >
+				
+				<label for="ID ExerciciosCatalogos">Exercicio</label>  
+				<select name="idExerciciosCatalogos">
+					<c:forEach items="${catalogos}" var="catalogo">
+						<option value="${catalogo.id}" >${catalogo.identificacao}</option>
+					</c:forEach>
+				</select>
+				<br />
 	
 	<input type="submit" value="Alterar">
 	
