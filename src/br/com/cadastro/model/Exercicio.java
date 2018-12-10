@@ -18,8 +18,8 @@ public class Exercicio {
 	public String getRepeticoes() {
 		return repeticoes;
 	}
-	public void setRepeticoes(String identificacao) {
-		this.repeticoes = identificacao;
+	public void setRepeticoes(String repeticoes) {
+		this.repeticoes = repeticoes;
 	}
 	
 	public Long getIdExerciciosDias() {
