@@ -52,12 +52,12 @@ public class DiaController {
     }
 	
 	@RequestMapping("alteraDia")
-	public String altera(@Valid Dia dia, BindingResult result, Long id) throws ClassNotFoundException {
+	public String altera(@Valid Dia dia, BindingResult result, Long idDia) throws ClassNotFoundException {
 		if(result.hasFieldErrors("identificacao") ) {
 			 return "dia/mostra";
 	     }
 		daoDia.altera(dia);
-		return "redirect:listaDias?id="+id+"";
+		return "redirect:listaDias?id="+idDia+"";
     }
 	
     @RequestMapping("removeDia")

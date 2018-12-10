@@ -111,14 +111,13 @@ public class DiaDAO {
 	
 	
 	public void altera(Dia dia){
-		String sql = "update dias set identificacao=? , idDiasTreino=? where id=?";
+		String sql = "update dias set identificacao=? where id=?";
 		
 		try{
 			PreparedStatement stmt = this.connection.prepareStatement(sql);
 			
 			stmt.setString(1, dia.getIdentificacao());
-			stmt.setLong(2, dia.getIdDiasTreino());
-			stmt.setLong(3, dia.getId());
+			stmt.setLong(2, dia.getId());
 				
 			stmt.execute();
 			stmt.close();

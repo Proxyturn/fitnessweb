@@ -66,6 +66,13 @@ public class TreinoController {
         return "redirect:listaTreinos";
     }
 	
+	
+	@RequestMapping("ativaTreino")
+	public String ativaTreinamento(@Valid Treino treino, BindingResult result) throws ClassNotFoundException {
+		daoTreino.ativa(treino);
+        return "redirect:listaTreinos";
+    }
+	
     @RequestMapping("removeTreino")
     public String remove(Treino treino) throws ClassNotFoundException {
     	daoTreino.remove(treino);
