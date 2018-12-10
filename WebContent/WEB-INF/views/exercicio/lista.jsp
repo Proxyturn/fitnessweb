@@ -16,12 +16,14 @@
 	<br />
 	<table border="1">
 		<tr>
+			<th>id exercicio</th>
 			<th>Repetições</th>
 			<th>Exercícios</th>
 		</tr>
 		<c:forEach items="${exercicios}" var="exercicio">
 			<c:if test="${exercicio.idExerciciosDias == dia.id}">
 				<tr>
+					<td>${exercicio.id}</td>
 					<td>${exercicio.repeticoes}</td>
 					<td>
 						<c:forEach items="${catalogos}" var="catalogo">
@@ -30,8 +32,8 @@
 							</c:if>
 						</c:forEach>
 					</td>
-					<td><a href="mostraExercicio?id=${exercicio.id}&idExercicio=${exercicio.id}" title="Editar">Editar</a></td>
-					<td><a href="removeExercicio?id=${exercicio.id}&idExercicio=${exercicio.id}" title="Excluir">Excluir</a></td>
+					<td><a href="mostraExercicio?id=${exercicio.id}" title="Editar">Editar</a></td>
+					<td><a href="removeExercicio?id=${exercicio.id}&idExercicio=${exercicio.idExerciciosDias}" title="Excluir">Excluir</a></td>
 				</tr>
 			</c:if>
 		</c:forEach>

@@ -20,5 +20,7 @@
 	</form>
 	<br />
 	<a href="novoUsuario">Criar Usuário</a>
+<br /><br />
+<footer class="container-fluid text-center"> </footer>
 </body>
 </html>

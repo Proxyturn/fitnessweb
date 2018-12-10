@@ -115,15 +115,14 @@ public class ExercicioDAO {
 	
 	
 	public void altera(Exercicio exercicio){
-		String sql = "update exercicios set repeticoes=? , idExerciciosDias=? , idExerciciosCatalogo=? where id=?";
+		String sql = "update exercicios set repeticoes=? , idExerciciosCatalogos=? where id=?";
 		
 		try{
 			PreparedStatement stmt = this.connection.prepareStatement(sql);
 			
 			stmt.setString(1, exercicio.getRepeticoes());
-			stmt.setLong(2, exercicio.getIdExerciciosDias());
-			stmt.setLong(3, exercicio.getIdExerciciosCatalogos());
-			stmt.setLong(4, exercicio.getId());
+			stmt.setLong(2, exercicio.getIdExerciciosCatalogos());
+			stmt.setLong(3, exercicio.getId());
 				
 			stmt.execute();
 			stmt.close();

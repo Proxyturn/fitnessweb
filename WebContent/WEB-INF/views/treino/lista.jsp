@@ -38,11 +38,18 @@
 		</tr>
 		<c:forEach items="${treinos}" var="treino">
 				<c:if test="${idUsuario == treino.idTreinoUsuario}">
-					<tr>
+					<tr <c:if test="${treino.status == 0}">style="background: #C0C0C0;"</c:if> >
 						<td>${treino.id}</td>
 						<td>${treino.idTreinoUsuario}</td>
 						<td>${treino.identificacao}</td>
-						<td>${treino.status}</td>
+						<td>
+						<c:if test="${treino.status == 1}">
+						<a href="ativaTreino?id=${treino.id}&status=0" title="Desativar">Desativar</a>
+						</c:if>
+						<c:if test="${treino.status == 0}">
+						<a href="ativaTreino?id=${treino.id}&status=1" title="Ativar">Ativar</a>
+						</c:if>
+						</td>
 						<td><fmt:formatDate value="${treino.dataInicio.time}" pattern="dd/MM/yyyy" /></td>
 						<td><fmt:formatDate value="${treino.dataFim.time}" pattern="dd/MM/yyyy" /></td>
 						<td><a href="listaDias?id=${treino.id}" title="Inserir Dias">Inserir Dias</a></td>

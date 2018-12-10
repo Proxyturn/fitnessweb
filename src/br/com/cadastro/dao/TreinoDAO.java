@@ -188,4 +188,21 @@ public class TreinoDAO {
 		}
 	}
 	
+	public void ativa(Treino treino){
+		String sql = "update treinos set status=? where id=?";
+		
+		try{
+			PreparedStatement stmt = this.connection.prepareStatement(sql);
+			
+			stmt.setLong(1, treino.getStatus());
+			stmt.setLong(2, treino.getId());
+			
+			stmt.execute();
+			stmt.close();
+			
+		}catch(SQLException e){
+			throw new RuntimeException(e);
+		}
+	}
+	
 }
