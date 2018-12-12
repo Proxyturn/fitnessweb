@@ -6,22 +6,29 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="resources/css/style/style.css"/>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Sistema Cadastro</title>
+	<link  href="/fitnessweb/resources/css/style/style.css" rel="stylesheet" type="text/css">
+
 </head>
 <body>
-	<h3>Acesso ao Sistema</h3>
-	<form action="efetuaLogin" method="post">
-		<label>Login:</label><br />
-		<input id="inputscale" placeholder="Usuário" name="login"> <br/>
-		<label>Senha:</label><br />
-		<input name="senha" style="height:30px;font-size:12pt;" placeholder="Senha" type="password" value=""><br/><br/>
-		<input type="submit" value="Entrar">
-	</form>
-	<br />
-	<a href="novoUsuario">Criar Usuário</a>
-	<br /><br />
+	<main class="content">
+		<div class="login">
+			<div class="logo"></div>
+			<br/><br/><br/><br/>
+			<h3 class="title">Login</h3>
+			<form action="efetuaLogin" method="post">
+				<label>Login:</label><br />
+				<input id="inputscale" placeholder="Usuário" name="login"> <br/>
+				<label>Senha:</label><br />
+				<input name="senha" id="inputscale" placeholder="Senha" type="password" value=""><br/><br/>
+				<input type="submit" value="Entrar">
+			</form>
+		<br />
+		<a class="link" href="novoUsuario">Criar Usuário</a>
+		<br /><br />
+		</div>
+	</main>
 	<footer class="container-fluid text-center"> </footer>
 </body>
 </html> 

@@ -7,15 +7,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Sistema Cadastro</title>
+<link  href="/fitnessweb/resources/css/style/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-
-	<br />
-	Usuário criado com Sucesso.
-	
-	<br />
-	<a href="loginForm" >Ir para Login</a>
-	<br />
+	<main class="content">
+		<div class="login">
+			<h1 class="title">Usuário criado <br />com Sucesso.</h1> <br /><br />
+			<br />
+			<br />
+			<a class="link" href="loginForm" >Ir para Login</a>
+			<br />
+		</div>
+	</main>
 
 </body>
 </html>

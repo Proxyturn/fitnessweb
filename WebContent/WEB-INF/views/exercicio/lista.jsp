@@ -11,10 +11,12 @@
 <body>
 <c:import url="/WEB-INF/views/principal/menu.jsp"/>
 	<br />
-	<a href="novoExercicio?id=${dia.id}">Cadastrar novo exercicios</a>
+	<div class="botao-treino">
+	<a class="btn" href="novoExercicio?id=${dia.id}">Cadastrar novo exercicios</a>
+	</div>
 	<br />
 	<br />
-	<table border="1">
+	<table class="tabela-principal" border="1">
 		<tr>
 			<th>id exercicio</th>
 			<th>Repetições</th>
@@ -32,8 +34,8 @@
 							</c:if>
 						</c:forEach>
 					</td>
-					<td><a href="mostraExercicio?id=${exercicio.id}" title="Editar">Editar</a></td>
-					<td><a href="removeExercicio?id=${exercicio.id}&idExercicio=${exercicio.idExerciciosDias}" title="Excluir">Excluir</a></td>
+					<td><a class="botao-tabela" href="mostraExercicio?id=${exercicio.id}" title="Editar">Editar</a></td>
+					<td><a class="botao-tabela" href="removeExercicio?id=${exercicio.id}&idExercicio=${exercicio.idExerciciosDias}" title="Excluir">Excluir</a></td>
 				</tr>
 			</c:if>
 		</c:forEach>

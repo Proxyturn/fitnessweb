@@ -12,34 +12,35 @@
 <body>
 	<c:import url="/WEB-INF/views/principal/menu.jsp"/>
 	<br />
-	Alterar treino: ${treino.id}	
+	<main class="tabela-alterar">
+	<a class="text-alterar"><h2 class="link" >Alterar treino: ${treino.id}</h2></a>	
 	<br />
 	<br />
 	
-	<form action="alteraTreino" method="post" class="form-horizontal">
+	<form class="text-alterar" action="alteraTreino" method="post" class="form-horizontal">
 	
 				<input type="hidden" name="id" value="${treino.id}" />
 				
-				<label for="Identificacao">Identificação</label>
-				<input type="text" name="identificacao" value="${treino.identificacao}" >
+				<label class="title" for="Identificacao">Identificação</label>
+				<input id="inputscale" type="text" name="identificacao" value="${treino.identificacao}" >
 				<form:errors path="treino.identificacao" cssStyle="color:#B71C1C"/><br />
-				
-				<label for="Status">Status</label>
-				<input type="text" name="status" value="${treino.status}" >
+				<br />
+				<label class="title" for="Status">Status</label>
+				<input id="inputscale" type="text" name="status" value="${treino.status}" >
 				<form:errors path="treino.status" cssStyle="color:#B71C1C"/><br />
-				
-				<label for="DataInicio">Data de Inicio</label>
-				<input type="text" name="dataInicio" value="<fmt:formatDate value="${treino.dataInicio.time}" pattern="dd/MM/yyyy" />" >
+				<br />
+				<label class="title" for="DataInicio">Data de Inicio</label>
+				<input id="inputscale" type="text" name="dataInicio" value="<fmt:formatDate value="${treino.dataInicio.time}" pattern="dd/MM/yyyy" />" >
 				<form:errors path="treino.dataInicio" cssStyle="color:#B71C1C"/><br />
-				
-				<label for="DataFim">Data Fim</label>
-				<input type="text" name="dataFim" value="<fmt:formatDate value="${treino.dataFim.time}" pattern="dd/MM/yyyy" />">
+				<br />
+				<label class="title" for="DataFim">Data Fim</label>
+				<input id="inputscale" type="text" name="dataFim" value="<fmt:formatDate value="${treino.dataFim.time}" pattern="dd/MM/yyyy" />">
 				<form:errors path="treino.dataFim" cssStyle="color:#B71C1C"/><br />
 				
-	
+	<br /><br />
 	<input type="submit" value="Alterar">
 	
 	</form>
-	
+	</main>
 </body>
 </html>

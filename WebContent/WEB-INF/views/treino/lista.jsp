@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link  href="/fitnessweb/resources/css/style/style.css" rel="stylesheet" type="text/css">
 <title>Sistema Cadastro</title>
 </head>
 <body>
@@ -20,10 +21,13 @@
  
  
 	<br />
-	<a href="novoTreino?id=${idUsuario}">Cadastrar novo treino</a>
+	<div class="corpo">
+	<div class="botao-treino">
+	<a class="btn" href="novoTreino?id=${idUsuario}">Cadastrar novo treino</a>
+	</div>
 	<br />
 	<br />
-	<table border="1">
+	<table class="tabela-principal" border="1">
 		<tr>
 			<th>Id</th>
 			<th>Id Usuario</th>
@@ -44,20 +48,21 @@
 						<td>${treino.identificacao}</td>
 						<td>
 						<c:if test="${treino.status == 1}">
-						<a href="ativaTreino?id=${treino.id}&status=0" title="Desativar">Desativar</a>
+						<a class="botao-tabela" href="ativaTreino?id=${treino.id}&status=0" title="Desativar">Desativar</a>
 						</c:if>
 						<c:if test="${treino.status == 0}">
-						<a href="ativaTreino?id=${treino.id}&status=1" title="Ativar">Ativar</a>
+						<a class="botao-tabela" href="ativaTreino?id=${treino.id}&status=1" title="Ativar">Ativar</a>
 						</c:if>
 						</td>
 						<td><fmt:formatDate value="${treino.dataInicio.time}" pattern="dd/MM/yyyy" /></td>
 						<td><fmt:formatDate value="${treino.dataFim.time}" pattern="dd/MM/yyyy" /></td>
-						<td><a href="listaDias?id=${treino.id}" title="Inserir Dias">Inserir Dias</a></td>
-						<td><a href="mostraTreino?id=${treino.id}" title="Editar">Editar</a></td>
-						<td><a href="removeTreino?id=${treino.id}" title="Excluir">Excluir</a></td>
+						<td><a class="botao-tabela" href="listaDias?id=${treino.id}" title="Inserir Dias">Inserir Dias</a></td>
+						<td><a class="botao-tabela" href="mostraTreino?id=${treino.id}" title="Editar">Editar</a></td>
+						<td><a class="botao-tabela" href="removeTreino?id=${treino.id}" title="Excluir">Excluir</a></td>
 					</tr>
 				</c:if>
 		</c:forEach>
 	</table>
+	</div>
 </body>
 </html>
