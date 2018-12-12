@@ -12,14 +12,15 @@
 <body>
 	<c:import url="/WEB-INF/views/principal/menu.jsp"/>
 	<br />
-	Alterar dia: ${dia.id}	
+	<main class="tabela-alterar">
+	<a class="text-alterar"><h2 class="link" >Alterar dia: ${dia.id}</h2></a>	
 	<br />
 	<br />
 	
-	<form action="alteraDia?id=${dia.id}" method="post" class="form-horizontal">
+	<form class="text-alterar" action="alteraDia?id=${dia.id}" method="post" class="form-horizontal">
 		
-		<label for="Identificacao">Identificação</label>  
-		<input type="text" name="identificacao" value="${dia.identificacao}" >
+		<label class="title" for="Identificacao">Identificação</label>  
+		<input id="inputscale" type="text" name="identificacao" value="${dia.identificacao}" >
 		<form:errors path="dia.identificacao" cssStyle="color:#B71C1C"/><br />
 	
 		<input type="hidden" name="idDia" value="${dia.idDiasTreino}" >
@@ -27,6 +28,6 @@
 	<input type="submit" value="Alterar">
 	
 	</form>
-	
+	</main>
 </body>
 </html>
