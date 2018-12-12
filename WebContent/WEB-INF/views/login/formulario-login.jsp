@@ -6,21 +6,22 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Sistema Cadastro</title>
+	<link rel="stylesheet" type="text/css" href="resources/css/style/style8u  x.css"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Sistema Cadastro</title>
 </head>
 <body>
 	<h3>Acesso ao Sistema</h3>
-	<form action="efetuaLogin" method="post" >
+	<form action="efetuaLogin" method="post">
 		<label>Login:</label><br />
-		<input name="login" > <br/>
+		<input id="inputscale" placeholder="Usuário" name="login"> <br/>
 		<label>Senha:</label><br />
-		<input name="senha" type="password" value=""><br/><br/>
+		<input name="senha" style="height:30px;font-size:12pt;" placeholder="Senha" type="password" value=""><br/><br/>
 		<input type="submit" value="Entrar">
 	</form>
 	<br />
 	<a href="novoUsuario">Criar Usuário</a>
-<br /><br />
-<footer class="container-fluid text-center"> </footer>
+	<br /><br />
+	<footer class="container-fluid text-center"> </footer>
 </body>
-</html>
+</html> 
