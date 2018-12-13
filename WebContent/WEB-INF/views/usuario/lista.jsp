@@ -16,7 +16,6 @@
 	<br />
 	<table>
 		<tr>
-			<th>Id</th>
 			<th>Nome</th>
 			<th>Login</th>
 			<th>Data de Nascimento</th>
@@ -26,7 +25,6 @@
 		</tr>
 		<c:forEach items="${usuarios}" var="usuario">
 			<tr>
-				<td>${usuario.id}</td>
 				<td>${usuario.nome}</td>
 				<td>${usuario.login}</td>
 				<td><fmt:formatDate value="${usuario.dataNascimento.time}" pattern="dd/MM/yyyy" /></td>

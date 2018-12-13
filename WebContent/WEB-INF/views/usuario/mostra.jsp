@@ -12,14 +12,13 @@
 <body>
 	<c:import url="/WEB-INF/views/principal/menu.jsp"/>
 	<br />
-	Alterar usuario: ${usuario.id}	
+	Alterar usuario: ${usuario.nome}	
 	<br />
 	<br />
 	
 	<form action="alteraUsuario" method="post" class="form-horizontal">
 	
-	<input type="hidden" name="id" value="${usuario.id}" />
-				
+
 	<label for="Nome">Nome</label>  
 	<input type="text" name="nome" value="${usuario.nome}" > 
 	<form:errors path="usuario.nome" cssStyle="color:#B71C1C"/><br />

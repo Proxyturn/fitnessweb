@@ -16,7 +16,6 @@
 	<br />
 	<table>
 		<tr>
-			<th>Id</th>
 			<th>Identificacao</th>
 			<th>descricao</th>
 			<th></th>
@@ -24,7 +23,6 @@
 		</tr>
 		<c:forEach items="${catalogos}" var="catalogo">
 			<tr>
-				<td>${catalogo.id}</td>
 				<td>${catalogo.identificacao}</td>
 				<td>${catalogo.descricao}</td>
 				<td><a href="mostraCatalogo?id=${catalogo.id}" title="Editar">Editar</a></td>

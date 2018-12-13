@@ -21,9 +21,8 @@
 				<input type="text" name="repeticoes" value="${exercicio.repeticoes}" >
 				<form:errors path="exercicio.repeticoes" cssStyle="color:#B71C1C"/><br />
 	 
-				<input type="hidden" name="idExerciciosDias" value="${dia.id}" >
 				
-				<label for="ID ExerciciosCatalogos">Exercicio</label>  
+				<label for="IdExerciciosCatalogos">Exercício</label>  
 				<select name="idExerciciosCatalogos">
 					<c:forEach items="${catalogos}" var="catalogo">
 						<option value="${catalogo.id}" >${catalogo.identificacao}</option>

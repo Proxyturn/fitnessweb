@@ -18,16 +18,12 @@
 	<br />
 	<table class="tabela-principal" border="1">
 		<tr>
-			<th>Id</th>
 			<th>Identificacao</th>
-			<th>idDiasTreino</th>
 		</tr>
 		<c:forEach items="${dias}" var="dia">
 			<c:if test="${dia.idDiasTreino == treino.id}">
 				<tr>
-					<td>${dia.id}</td>
 					<td>${dia.identificacao}</td>
-					<td>${dia.idDiasTreino}</td>
 					<td><a class="botao-tabela" href="listaExercicios?id=${dia.id}" title="Inserir Exercícios">Inserir Exercícios</a></td>
 					<td><a class="botao-tabela" href="mostraDia?id=${dia.id}" title="Editar">Editar</a></td>
 					<td><a class="botao-tabela" href="removeDia?id=${dia.id}&idTreino=${dia.idDiasTreino}" title="Excluir">Excluir</a></td>

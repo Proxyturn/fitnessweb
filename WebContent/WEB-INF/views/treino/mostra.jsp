@@ -19,7 +19,6 @@
 	
 	<form class="text-alterar" action="alteraTreino" method="post" class="form-horizontal">
 	
-				<input type="hidden" name="id" value="${treino.id}" />
 				
 				<label class="title" for="Identificacao">Identificação</label>
 				<input id="inputscale" type="text" name="identificacao" value="${treino.identificacao}" >

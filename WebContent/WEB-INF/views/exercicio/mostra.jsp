@@ -19,13 +19,12 @@
 	
 	<form class="text-alterar" action="alteraExercicio?id=${exercicio.id}" method="post" class="form-horizontal">
 	
-	<input type="hidden" name="idExercicio" value="${exercicio.idExerciciosDias}" /> <br />
 				
 				<label class="title" for="Repeticoes">Repetições</label>  
 				<input id="inputscale" type="text" name="repeticoes" value="${exercicio.repeticoes}" >
 				<form:errors path="exercicio.repeticoes" cssStyle="color:#B71C1C"/><br />
 				<br/>
-				<label class="title" for="ID ExerciciosCatalogos">Exercicio</label>  
+				<label class="title" for="IdExerciciosCatalogos">Exercício</label>  
 				<select id="inputscale" name="idExerciciosCatalogos">
 					<c:forEach items="${catalogos}" var="catalogo">
 						<option value="${catalogo.id}" >${catalogo.id} ${catalogo.identificacao}</option>

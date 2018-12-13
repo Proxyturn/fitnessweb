@@ -18,7 +18,6 @@
 	
 	<form action="alteraCatalogo" method="post" class="form-horizontal">
 	
-	<input type="hidden" name="id" value="${catalogo.id}" />
 				
 		<label for="Identificacao">Identificação</label>  
 		<input type="text" name="identificacao" value="${catalogo.identificacao}" >

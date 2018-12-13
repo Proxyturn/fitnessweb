@@ -29,8 +29,6 @@
 	<br />
 	<table class="tabela-principal" border="1">
 		<tr>
-			<th>Id</th>
-			<th>Id Usuario</th>
 			<th>Identificacao</th>
 			<th>Status</th>
 			<th>Data de Inicio</th>
@@ -38,13 +36,10 @@
 			<th></th>
 			<th></th>
 			<th></th>
-		
 		</tr>
 		<c:forEach items="${treinos}" var="treino">
 				<c:if test="${idUsuario == treino.idTreinoUsuario}">
 					<tr <c:if test="${treino.status == 0}">style="background: #C0C0C0;"</c:if> >
-						<td>${treino.id}</td>
-						<td>${treino.idTreinoUsuario}</td>
 						<td>${treino.identificacao}</td>
 						<td>
 						<c:if test="${treino.status == 1}">

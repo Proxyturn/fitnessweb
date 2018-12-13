@@ -23,8 +23,6 @@
 		<input id="inputscale" type="text" name="identificacao" value="${dia.identificacao}" >
 		<form:errors path="dia.identificacao" cssStyle="color:#B71C1C"/><br />
 	
-		<input type="hidden" name="idDia" value="${dia.idDiasTreino}" >
-	
 	<input type="submit" value="Alterar">
 	
 	</form>

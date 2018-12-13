@@ -18,14 +18,12 @@
 	<br />
 	<table class="tabela-principal" border="1">
 		<tr>
-			<th>id exercicio</th>
 			<th>Repetições</th>
 			<th>Exercícios</th>
 		</tr>
 		<c:forEach items="${exercicios}" var="exercicio">
 			<c:if test="${exercicio.idExerciciosDias == dia.id}">
 				<tr>
-					<td>${exercicio.id}</td>
 					<td>${exercicio.repeticoes}</td>
 					<td>
 						<c:forEach items="${catalogos}" var="catalogo">
